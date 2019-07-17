@@ -9,7 +9,7 @@ Practice 1. 조건문
 
 # Answer:
 year = int(input())
-bool(year % 4 == 0) and (year % 100 != 0 or year % 400 == 0)
+print(bool(year % 4 == 0) and (year % 100 != 0 or year % 400 == 0))
 
 '''
 2.상 근이는 매일 아침 알람을 듣고 일어난다. 
@@ -28,15 +28,15 @@ bool(year % 4 == 0) and (year % 100 != 0 or year % 400 == 0)
 # Answer:
 hour, minute = map(int, input().split())
 if hour > 0:
-    if minute < 45:
-        print(hour-1, 45-minute)
+    if minute >= 45:
+        print(hour-1, minute-45)
     else:
-        print(hour, minute-45)
+        print(hour-1, minute+15)
 else:
-    if minute < 45:
-        print(11, 45-minute)
+    if minute >= 45:
+        print(11, minute-45)
     else:
-        print(hour, minute-45)
+        print(11, minute+15)
 
 '''
 3. 세 정수 a, b, c를 입력으로 받아 두 번째로 큰 정수를 출력하는 프로그램을 작성하시오.
@@ -48,7 +48,7 @@ ls = [a, b, c]
 for i in range(len(ls)-1):
     if ls[i] > ls[i+1]:
         ls[i], ls[i+1] = ls[i+1], ls[i]
-print(ls)
+print(ls[1])
 
 '''
 4. 세 자연수 a, b, c 가 피타고라스 정리 a**2 + b**2 = c**2 를 만족하면 피타고라스 수라고 부른다. 
@@ -162,7 +162,7 @@ for i in range(1, n+1):
         if i % k == 0:
             sum_factor += k
     if sum_factor == i:
-                print(sum_factor)
+        print(sum_factor)
 
 '''
 6. 1부터 10까지 자연수를 각각 제곱해 더하면 다음과 같다 (제곱의 합). 

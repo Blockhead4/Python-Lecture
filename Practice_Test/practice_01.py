@@ -124,7 +124,7 @@ for i in range(24):
         clock = str(i)+str(k)
         if '3' in clock:
             count_3 += 1
-print(count_3)
+print(count_3 * 60)
 
 '''
 4. 1~1000에서 각 숫자의 개수를 구하시오.

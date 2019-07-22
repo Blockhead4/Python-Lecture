@@ -15,6 +15,7 @@ Practice 2. 문자열 및 파일
 #             max_n = int(check)
 
 # print(max_n)
+
 '''
 2. 시저 암호는, 고대 로마의 황제 줄리어스 시저가 만들어 낸 암호인데,
 예를 들어 알파벳 A를 입력했을 때, 그 알파벳의 n개 뒤에 오는 알파벳이 출력되는 것이다.
@@ -36,7 +37,6 @@ Practice 2. 문자열 및 파일
 #         new_string += chr(ord(v)+n-26) 
 
 # print(new_string)
-
 
 '''
 3. Linux 명령어인 grep 을 윈도우스에서 만들어 보시오.
@@ -64,20 +64,22 @@ Practice 2. 문자열 및 파일
 '''
 
 # Answer:
+# import operator
+
 # txtfile = str(input())
 
 # with open(txtfile, 'r') as file:
 #     words = []
 #     for line in file:
 #         words.extend(line.split())
-#     key = []
-#     val = []
+#     words_dic = {}
 #     for word in words:
-#         key.append(word)
-#         val.append(words.count(word))
-#     dic = dict(zip(key,val))
-#     word_count = list(dic.items())
-#     word_count = sorted(word_count, key=lambda x:x[1], reverse=True)
+#         if words_dic.get(word) == None:
+#             words_dic[word] = words.count(word)
+#         else:
+#             continue
+    
+#     word_count = sorted(words_dic.items(), key=operator.itemgetter(1), reverse=True)
     
 # print(f'총 단어수: {len(words)}')
 # for i in range(10):

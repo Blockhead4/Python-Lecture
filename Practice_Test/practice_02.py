@@ -64,26 +64,26 @@ Practice 2. 문자열 및 파일
 '''
 
 # Answer:
-# import operator
+import operator
 
-# txtfile = str(input())
+txtfile = str(input())
 
-# with open(txtfile, 'r') as file:
-#     words = []
-#     for line in file:
-#         words.extend(line.split())
-#     words_dic = {}
-#     for word in words:
-#         if words_dic.get(word) == None:
-#             words_dic[word] = words.count(word)
-#         else:
-#             continue
+with open(txtfile, 'r') as file:
+    words = []
+    for line in file:
+        words.extend(line.split())
+    words_dic = {}
+    for word in words:
+        if words_dic.get(word) == None:
+            words_dic[word] = words.count(word)
+        else:
+            continue
     
-#     word_count = sorted(words_dic.items(), key=operator.itemgetter(1), reverse=True)
+    word_count = sorted(words_dic.items(), key=operator.itemgetter(1), reverse=True)
     
-# print(f'총 단어수: {len(words)}')
-# for i in range(10):
-#     print(f'단어:{word_count[i][0]:>10s}, 빈도:{word_count[i][1]:<10d}')
+print(f'총 단어수: {len(words)}')
+for i in range(10):
+    print(f'단어:{word_count[i][0]:>10s}, 빈도:{word_count[i][1]:<10d}')
 
 '''
 5. 다음의 지시대로 폴더와 파일을 프로그램에서 만드시오.
@@ -130,36 +130,36 @@ txt 파일 안의 내용에 따라 txt파일을 폴더안으로 이동시켜 분
 '''
 
 # Answer:
-import pickle
+# import pickle
 
-name = 'james'
-age = 17
-address = '서울시 서초구 반포동'
-scores = {'korean': 90, 'english': 95, 'mathmatics': 85, 'science': 82}
+# name = 'james'
+# age = 17
+# address = '서울시 서초구 반포동'
+# scores = {'korean': 90, 'english': 95, 'mathmatics': 85, 'science': 82}
  
-with open('james.p', 'wb') as file:    # james.p 파일을 바이너리 쓰기 모드(wb)로 열기
-    pickle.dump(name, file)
-    pickle.dump(age, file)
-    pickle.dump(address, file)
-    pickle.dump(scores, file)
+# with open('james.p', 'wb') as file:    # james.p 파일을 바이너리 쓰기 모드(wb)로 열기
+#     pickle.dump(name, file)
+#     pickle.dump(age, file)
+#     pickle.dump(address, file)
+#     pickle.dump(scores, file)
 
-def group(a, *ns):
-    for n in ns:
-        a = [a[i:i+n] for i in range(0, len(a), n)]
-    return a
+# def group(a, *ns):
+#     for n in ns:
+#         a = [a[i:i+n] for i in range(0, len(a), n)]
+#     return a
 
-def join(a, *cs):
-    return [cs[0].join(join(t, *cs[1:])) for t in a] if cs else a
+# def join(a, *cs):
+#     return [cs[0].join(join(t, *cs[1:])) for t in a] if cs else a
 
-def hexdump(data):
-    to_hex = lambda c: '{:02X}'.format(c)
-    to_chr = lambda c: chr(c) if 32 <= c < 127 else '.'
-    make = lambda f, *cs: join(group(list(map(f, data)), 8, 2), *cs)
-    hs = make(to_hex, '  ', ' ')
-    cs = make(to_chr, ' ', '')
-    for i, (h, c) in enumerate(zip(hs, cs)):
-        print ('{:010X}: {:48}  {:16}'.format(i * 16, h, c))
+# def hexdump(data):
+#     to_hex = lambda c: '{:02X}'.format(c)
+#     to_chr = lambda c: chr(c) if 32 <= c < 127 else '.'
+#     make = lambda f, *cs: join(group(list(map(f, data)), 8, 2), *cs)
+#     hs = make(to_hex, '  ', ' ')
+#     cs = make(to_chr, ' ', '')
+#     for i, (h, c) in enumerate(zip(hs, cs)):
+#         print ('{:010X}: {:48}  {:16}'.format(i * 16, h, c))
 
-with open ('james.p','rb') as file:
-    data=file.read()
-    hexdump(data)
+# with open ('james.p','rb') as file:
+#     data=file.read()
+#     hexdump(data)

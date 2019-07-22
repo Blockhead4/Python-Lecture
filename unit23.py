@@ -34,7 +34,7 @@ for r in range(row):
         for i in range(r-1, r+2):
             for k in range(c-1, c+2):
                 
-                if i < 0 or k < 0 or i >= row or k >= row:
+                if i < 0 or k < 0 or i >= row or k >= col:
                     continue
                 elif matrix[r][c] == '*':
                     continue

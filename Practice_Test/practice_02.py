@@ -7,14 +7,16 @@ Practice 2. 문자열 및 파일
 '''
 
 # Answer:
-# max_n = []
-# for i in range(1, 1000):
-#     for k in range(1, 1000):
+# palin = []
+# for i in range(100, 1000):
+#     for k in range(100, 1000):
 #         check = str(i*k)
 #         if check == check[::-1]:
-#             max_n = int(check)
+#             palin.append(int(check))
 
-# print(max_n)
+# print(max(palin))
+
+
 '''
 2. 시저 암호는, 고대 로마의 황제 줄리어스 시저가 만들어 낸 암호인데,
 예를 들어 알파벳 A를 입력했을 때, 그 알파벳의 n개 뒤에 오는 알파벳이 출력되는 것이다.

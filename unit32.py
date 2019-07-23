@@ -10,4 +10,4 @@ Unit 32 심사문제 : 파일 이름을 한꺼번에 바꾸기
 # Answer:
 files = input().split()
 
-print(list(map(lambda x: '{:0>3}.{}'.format(int(x.split('.')[0]), x.split('.')[1]), files)))
+print(list(map(lambda x: '{:0>3}.{}'.format(*x.split('.')), files)))

@@ -1,0 +1,22 @@
+'''
+Unit 33 심사문제 : 카운트다운 함수 만들기
+표준 입력으로 정수가 입력됩니다. 
+다음 소스 코드를 완성하여 함수 c를 호출할 때마다 숫자가 1씩 줄어들게 만드세요. 
+여기서는 함수를 클로저로 만들어야 합니다. 
+정답에 코드를 작성할 때는 def countdown(n):에 맞춰서 들여쓰기를 해주세요.
+'''
+
+# Answer:
+def countdown(n):
+    i = n+1
+    def counter():
+        nonlocal i
+        i -= 1
+        return i
+    return counter
+
+n = int(input())
+ 
+c = countdown(n)
+for i in range(n):
+    print(c(), end=' ')

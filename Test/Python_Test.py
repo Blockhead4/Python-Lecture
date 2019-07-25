@@ -56,37 +56,45 @@ print(palin, x, y)
 # 8.
 import random
 
+# row, col = map(int, input().split())
+row = 8
+col = 8
+
 tiles = []
-for _ in range(5):
+for _ in range(row):
     value = []
-    for _ in range(5):
+    for _ in range(col):
         value.append(random.randint(1, 4))
     tiles.append(value)
 
+for i in tiles:
+    for v in i:
+        print(v, end=' ')
+    print()
+
+print()
+
 seq_idx_h = []
 for r in range(len(tiles)):
-    for c in range(len(tiles[0])-1):
-        if tiles[r][c] == tiles[r][c+1]:
+    for c in range(len(tiles[0])-2):
+        if tiles[r][c] == tiles[r][c+1] == tiles[r][c+2]:
             seq_idx_h.append([r, c])
 
 seq_idx_v = []
-for r in range(len(tiles)-1):
+for r in range(len(tiles)-2):
     for c in range(len(tiles[0])):
-        if tiles[r][c] == tiles[r+1][c]:
+        if tiles[r][c] == tiles[r+1][c] == tiles[r+2][c]:
             seq_idx_v.append([r, c])
 
-for i in range(len(seq_idx_h)-1):
-    if seq_idx_h[i][0] == seq_idx_h[i+1][0]:
-        if seq_idx_h[i][1]+1 == seq_idx_h[i+1][1]:
-            tiles[seq_idx_h[i][0]][seq_idx_h[i][1]:seq_idx_h[i][1]+3] = ['*']*3
+for r, c in seq_idx_h:
+    tiles[r][c] = '*'
+    tiles[r][c+1] = '*'
+    tiles[r][c+2] = '*'
 
-for i in range(1, len(seq_idx_v)):
-    for k in range(i):
-        if seq_idx_v[k][1] == seq_idx_v[i][1]:
-            if seq_idx_v[k][0]+1 == seq_idx_v[i][0]:
-                tiles[seq_idx_v[k][0]][seq_idx_v[k][1]] = '*'
-                tiles[seq_idx_v[k][0]+1][seq_idx_v[k][1]] = '*'
-                tiles[seq_idx_v[k][0]+2][seq_idx_v[k][1]] = '*'
+for r, c in seq_idx_v:
+    tiles[r][c] = '*'
+    tiles[r+1][c] = '*'
+    tiles[r+2][c] = '*'
 
 for i in tiles:
     for v in i:
